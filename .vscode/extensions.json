@@ -1,0 +1,17 @@
+{
+  "recommendations": [
+    "ms-python.python",
+    "ms-python.vscode-pylance",
+    "charliermarsh.ruff",
+    "FastAPILabs.fastapi-vscode",
+    "ms-ossdata.vscode-pgsql",
+    "bradlc.vscode-tailwindcss",
+    "dbaeumer.vscode-eslint",
+    "esbenp.prettier-vscode",
+    "ms-playwright.playwright",
+    "vitest.explorer",
+    "ms-azuretools.vscode-containers",
+    "editorconfig.editorconfig",
+    "anthropic.claude-code"
+  ]
+}

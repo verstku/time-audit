@@ -1,0 +1,13 @@
+{
+  "Metadata": {
+    "title": "Time Audit"
+  },
+  "HomePage": {
+    "title": "Time Audit"
+  },
+  "BackendStatus": {
+    "checking": "Backend: checking…",
+    "ok": "Backend: running",
+    "unavailable": "Backend: unavailable"
+  }
+}
