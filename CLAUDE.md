@@ -11,7 +11,7 @@ TimeAudit — веб-приложение (SaaS) для личного ауди�
 - backend/  — Python 3.13, FastAPI, SQLAlchemy 2 (синхронно), Alembic, Pydantic 2, PostgreSQL. Пакеты — только через uv.
 - frontend/ — Next.js (App Router), TypeScript, Tailwind CSS, shadcn/ui. Пакеты — npm.
 - docker-compose.yml — PostgreSQL для разработки.
-- docs/ — документация: требования (docs/product/), спеки и планы Superpowers (docs/superpowers/), отложенное (docs/DEFERRED.md).
+- docs/ — документация: исходное описание продукта (docs/brief/), требования (docs/product/), спеки и планы Superpowers (docs/superpowers/), отложенное (docs/DEFERRED.md).
 - .claude/ — настройки Claude Code и скиллы проекта (prd-*).
 Правила написания кода — в backend/CLAUDE.md и frontend/CLAUDE.md.
 

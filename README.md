@@ -209,6 +209,7 @@ time-audit/
 ├── docker/postgres/init/   SQL-скрипт создания баз
 ├── scripts/check.sh        все проверки разом
 ├── .github/workflows/      CI (GitHub Actions)
-├── docs/                   требования (product/), спеки и планы Superpowers (superpowers/), отложенное (DEFERRED.md)
+├── docs/                   исходное описание продукта (brief/), требования (product/), спеки и планы Superpowers
+│                           (superpowers/), отложенное (DEFERRED.md)
 └── docker-compose.yml      PostgreSQL для разработки
 ```
