@@ -1,8 +1,8 @@
-# Аудит рабочего времени (Time Audit) — правила проекта
+# TimeAudit — правила проекта
 
 ## О проекте
 <!-- prd:about:begin -->
-Проект ещё не описан: запусти /prd-project.
+TimeAudit — веб-приложение (SaaS) для личного аудита времени: таймер на задачах, норма и баланс по рабочему графику, задачи по направлениям и проектам, обучение (курсы и книги с прогрессом) и отчёты. Каждый пользователь ведёт учёт только для себя; интерфейс на русском (основной) и английском, на компьютере и телефоне. Описание продукта — docs/product/project.md, термины и имена в коде — docs/product/glossary.md, общие правила — docs/product/rules.md.
 <!-- prd:about:end -->
 
 <!-- Часть «Стек»: разделы до блока «Процесс» пишутся под стек kit'а. Блоки «Процесс» и «prd» ниже от стека не зависят. -->
@@ -11,7 +11,7 @@
 - backend/  — Python 3.13, FastAPI, SQLAlchemy 2 (синхронно), Alembic, Pydantic 2, PostgreSQL. Пакеты — только через uv.
 - frontend/ — Next.js (App Router), TypeScript, Tailwind CSS, shadcn/ui. Пакеты — npm.
 - docker-compose.yml — PostgreSQL для разработки.
-- docs/ — документация: требования (docs/product/), спеки и планы Superpowers (docs/superpowers/), отложенное (docs/DEFERRED.md).
+- docs/ — документация: исходное описание продукта (docs/brief/), требования (docs/product/), спеки и планы Superpowers (docs/superpowers/), отложенное (docs/DEFERRED.md).
 - .claude/ — настройки Claude Code и скиллы проекта (prd-*).
 Правила написания кода — в backend/CLAUDE.md и frontend/CLAUDE.md.
 
