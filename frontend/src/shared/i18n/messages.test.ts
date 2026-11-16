@@ -1,7 +1,7 @@
 import { describe, expect, it } from "vitest";
 
-import en from "../../messages/en.json";
-import ru from "../../messages/ru.json";
+import en from "../../../messages/en.json";
+import ru from "../../../messages/ru.json";
 
 function flattenKeys(messages: object, prefix = ""): string[] {
   return Object.entries(messages).flatMap(([key, value]) =>

@@ -18,7 +18,7 @@ const eslintConfig = defineConfig([
     "playwright-report/**",
     "test-results/**",
     "blob-report/**",
-    "src/lib/api/schema.d.ts",
+    "src/shared/api/schema.d.ts",
   ]),
   // Must stay last: turns off rules that conflict with Prettier.
   prettier,

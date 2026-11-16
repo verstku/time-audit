@@ -12,7 +12,7 @@
     "typecheck": "next typegen && tsc --noEmit",
     "test": "vitest run",
     "test:e2e": "playwright test",
-    "gen:api": "uv run --directory ../backend python -m app.export_openapi ../frontend/openapi.json && openapi-typescript openapi.json -o src/lib/api/schema.d.ts"
+    "gen:api": "uv run --directory ../backend python -m app.export_openapi ../frontend/openapi.json && openapi-typescript openapi.json -o src/shared/api/schema.d.ts"
   },
   "dependencies": {
     "@base-ui/react": "^1.9.0",

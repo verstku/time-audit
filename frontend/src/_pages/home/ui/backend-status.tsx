@@ -3,9 +3,10 @@
 import { useTranslations } from "next-intl";
 import { useEffect, useState } from "react";
 
-import { Badge } from "@/components/ui/badge";
-import { api } from "@/lib/api/client";
-import { type BackendState, resolveBackendStatus } from "@/lib/backend-status";
+import { api } from "@/shared/api";
+import { Badge } from "@/shared/ui/badge";
+
+import { type BackendState, resolveBackendStatus } from "../api/backend-status";
 
 const BADGE_VARIANTS = {
   checking: "outline",

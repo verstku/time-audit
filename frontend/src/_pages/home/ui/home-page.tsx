@@ -1,9 +1,10 @@
 import { useTranslations } from "next-intl";
 
-import { BackendStatus } from "@/components/backend-status";
-import { Card, CardContent } from "@/components/ui/card";
+import { Card, CardContent } from "@/shared/ui/card";
 
-export default function Home() {
+import { BackendStatus } from "./backend-status";
+
+export function HomePage() {
   const t = useTranslations("HomePage");
 
   return (

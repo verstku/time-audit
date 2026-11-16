@@ -7,5 +7,5 @@ playwright-report/
 test-results/
 blob-report/
 openapi.json
-src/lib/api/schema.d.ts
+src/shared/api/schema.d.ts
 AGENTS.md

@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import { NextIntlClientProvider } from "next-intl";
 import { getLocale, getTranslations } from "next-intl/server";
-import "./globals.css";
+import "../styles/globals.css";
 
 const geistSans = Geist({
   variable: "--font-sans",
@@ -20,7 +20,7 @@ export async function generateMetadata(): Promise<Metadata> {
   return { title: t("title") };
 }
 
-export default async function RootLayout({ children }: LayoutProps<"/">) {
+export async function RootLayout({ children }: LayoutProps<"/">) {
   const locale = await getLocale();
 
   return (
