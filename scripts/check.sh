@@ -72,7 +72,7 @@ check_api_types() {
   ./node_modules/.bin/openapi-typescript "$TMP_DIR/openapi.json" -o "$TMP_DIR/schema.d.ts" ||
     return 1
   if ! cmp -s "$TMP_DIR/openapi.json" openapi.json ||
-    ! cmp -s "$TMP_DIR/schema.d.ts" src/lib/api/schema.d.ts; then
+    ! cmp -s "$TMP_DIR/schema.d.ts" src/shared/api/schema.d.ts; then
     # shellcheck disable=SC2016  # backticks in messages are literal text
     echo 'Типы API устарели или отсутствуют: выполни `npm run gen:api` в папке frontend/' >&2
     return 1

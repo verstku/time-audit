@@ -1,5 +1,5 @@
-import type messages from "../messages/ru.json";
-import type { locales } from "./i18n/config";
+import type messages from "../../../messages/ru.json";
+import type { locales } from "./config";
 
 declare module "next-intl" {
   interface AppConfig {

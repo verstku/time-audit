@@ -18,4 +18,4 @@ const nextConfig: NextConfig = {
   },
 };
 
-export default createNextIntlPlugin()(nextConfig);
+export default createNextIntlPlugin("./src/shared/i18n/request.ts")(nextConfig);
