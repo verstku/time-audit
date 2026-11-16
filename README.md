@@ -16,7 +16,9 @@ TimeAudit — веб-приложение для личного аудита в�
 - [uv](https://docs.astral.sh/uv/) — Python и пакеты бэкенда (Python 3.13 uv скачает сам).
 - Node.js 24 через [nvm](https://github.com/nvm-sh/nvm) — версия записана в `frontend/.nvmrc`; npm идёт вместе с Node.
 - Для работы над проектом с Claude Code: [Claude Code](https://code.claude.com/docs/en/setup), плагин Superpowers
-  (`superpowers@superpowers-marketplace`), `jq` (его используют хуки в `.claude/hooks/`) и
+  (`superpowers@superpowers-marketplace`), MCP-сервер [Context7](https://github.com/upstash/context7)
+  (документация библиотек; на него ссылается `CLAUDE.md`; ставится на уровне пользователя, а не проекта),
+  `jq` (его используют хуки в `.claude/hooks/`) и
   [GitHub CLI](https://cli.github.com/) (`gh`).
 
 ## Первый запуск
@@ -126,8 +128,12 @@ npm run dev
 | e2e-тесты (Playwright) | `npm run test:e2e` |
 | обновить типы API | `npm run gen:api` |
 
+`npm run lint` запускает ESLint и проверку структуры FSD линтером [Steiger](https://github.com/feature-sliced/steiger)
+(конфиг — `frontend/steiger.config.mjs`): код импортирует только из слоёв ниже и только через публичный API слайса.
+Правила FSD — в `frontend/CLAUDE.md`.
+
 `npm run gen:api` берёт схему API прямо из кода бэкенда — запускать бэкенд не нужно. После изменения эндпоинтов
-или схем бэкенда выполните её и закоммитьте `frontend/openapi.json` и `frontend/src/lib/api/schema.d.ts`.
+или схем бэкенда выполните её и закоммитьте `frontend/openapi.json` и `frontend/src/shared/api/schema.d.ts`.
 
 Все проверки разом (линтеры, типы, тесты бэкенда и фронтенда, свежесть типов API; без e2e) — из корня проекта:
 
@@ -197,15 +203,16 @@ time-audit/
 │   ├── app/                код: api/ (эндпоинты), core/ (настройки, БД), models/, schemas/, services/
 │   ├── alembic/            миграции БД
 │   └── tests/              тесты pytest
-├── frontend/               Next.js, TypeScript, Tailwind CSS, shadcn/ui
+├── frontend/               Next.js, TypeScript, Tailwind CSS, shadcn/ui; архитектура — FSD
+│   ├── app/                маршруты Next.js (App Router): только реэкспорт из src/
 │   ├── messages/           тексты интерфейса: ru.json, en.json
 │   ├── e2e/                e2e-тесты Playwright
 │   ├── openapi.json        схема API (генерируется)
-│   └── src/
-│       ├── app/            страницы (App Router)
-│       ├── components/     компоненты, ui/ — компоненты shadcn/ui
-│       ├── i18n/           настройка переводов (next-intl)
-│       └── lib/            логика; api/ — клиент API и типы (генерируются)
+│   └── src/                слои FSD
+│       ├── _app/           слой app: корневой layout (entrypoint/), глобальные стили (styles/)
+│       ├── _pages/         слой pages: страницы; home/ — главная
+│       └── shared/         код, который не знает о продукте: ui/ (компоненты shadcn/ui), api/ (клиент API
+│                           и типы, генерируются), lib/ (утилиты), i18n/ (настройка next-intl)
 ├── docker/postgres/init/   SQL-скрипт создания баз
 ├── scripts/check.sh        все проверки разом
 ├── .github/workflows/      CI (GitHub Actions)

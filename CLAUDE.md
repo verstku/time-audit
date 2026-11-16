@@ -9,7 +9,8 @@ TimeAudit — веб-приложение (SaaS) для личного ауди�
 
 ## Структура
 - backend/  — Python 3.13, FastAPI, SQLAlchemy 2 (синхронно), Alembic, Pydantic 2, PostgreSQL. Пакеты — только через uv.
-- frontend/ — Next.js (App Router), TypeScript, Tailwind CSS, shadcn/ui. Пакеты — npm.
+- frontend/ — Next.js (App Router), TypeScript, Tailwind CSS, shadcn/ui. Архитектура — FSD: маршруты
+  в frontend/app/, код в слоях frontend/src/ (правила — frontend/CLAUDE.md). Пакеты — npm.
 - docker-compose.yml — PostgreSQL для разработки.
 - docs/ — документация: исходное описание продукта (docs/brief/), требования (docs/product/), спеки и планы Superpowers (docs/superpowers/), отложенное (docs/DEFERRED.md).
 - .claude/ — настройки Claude Code и скиллы проекта (prd-*).
@@ -40,6 +41,8 @@ TimeAudit — веб-приложение (SaaS) для личного ауди�
 - Если этап меняет API (эндпоинты или схемы запросов и ответов из backend/app/schemas/), в спеке нужен раздел «Контракт API»: для каждого эндпоинта — метод и путь, поля запроса и ответа, коды ошибок. Имена — из glossary.md.
 - Порядок задач в плане: бэкенд (модели и миграция → сервисы → эндпоинты) → фронтенд → e2e-тесты.
 - Код и тесты одной задачи — только в backend/ или только во frontend/. Исключение: задача, которая меняет эндпоинты или схемы запросов и ответов (backend/app/schemas/), заканчивается шагом `npm run gen:api` и коммитит оба сгенерированных файла.
+- Для каждого нового файла фронтенда в плане указывай полный путь: слой, слайс и сегмент FSD. Вынос кода
+  в widgets, features или entities обоснуй в спеке: где этот код используется.
 
 ## Тексты интерфейса
 - Тексты интерфейса не пиши строками в коде — только через файлы переводов (ru и en). Основной язык — русский.
